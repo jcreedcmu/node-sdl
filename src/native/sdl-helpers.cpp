@@ -57,10 +57,10 @@ static int num_keys;
 
 static char text_input[32];
 
-const static int SDL_JOYSTICK_AXIS_RANGE = SDL_JOYSTICK_AXIS_MAX - SDL_JOYSTICK_AXIS_MIN;
+const static int SDL_JOYSTICK_AXIS_RANGE = 0; // SDL_JOYSTICK_AXIS_MAX - SDL_JOYSTICK_AXIS_MIN;
 
 double _joystickMapAxis (int value) {
-	return (value - SDL_JOYSTICK_AXIS_MIN) / (SDL_JOYSTICK_AXIS_RANGE / 2.0) - 1;
+  return 0.0; // (value - SDL_JOYSTICK_AXIS_MIN) / (SDL_JOYSTICK_AXIS_RANGE / 2.0) - 1;
 }
 
 
@@ -615,13 +615,13 @@ enum_getPowerLevels (Variant & levels)
 {
 	MAKE_MAP(levels);
 
-	SET_NUM(levels, "unknown", SDL_JOYSTICK_POWER_UNKNOWN);
-	SET_NUM(levels, "empty", SDL_JOYSTICK_POWER_EMPTY);
-	SET_NUM(levels, "low", SDL_JOYSTICK_POWER_LOW);
-	SET_NUM(levels, "medium", SDL_JOYSTICK_POWER_MEDIUM);
-	SET_NUM(levels, "full", SDL_JOYSTICK_POWER_FULL);
-	SET_NUM(levels, "wired", SDL_JOYSTICK_POWER_WIRED);
-	SET_NUM(levels, "max", SDL_JOYSTICK_POWER_MAX);
+	// SET_NUM(levels, "unknown", SDL_JOYSTICK_POWER_UNKNOWN);
+	// SET_NUM(levels, "empty", SDL_JOYSTICK_POWER_EMPTY);
+	// SET_NUM(levels, "low", SDL_JOYSTICK_POWER_LOW);
+	// SET_NUM(levels, "medium", SDL_JOYSTICK_POWER_MEDIUM);
+	// SET_NUM(levels, "full", SDL_JOYSTICK_POWER_FULL);
+	// SET_NUM(levels, "wired", SDL_JOYSTICK_POWER_WIRED);
+	// SET_NUM(levels, "max", SDL_JOYSTICK_POWER_MAX);
 
 	return nullptr;
 }
@@ -631,16 +631,16 @@ enum_getJoystickTypes (Variant & types)
 {
 	MAKE_MAP(types);
 
-	SET_NUM(types, "unknown", SDL_JOYSTICK_TYPE_UNKNOWN);
-	SET_NUM(types, "gamecontroller", SDL_JOYSTICK_TYPE_GAMECONTROLLER);
-	SET_NUM(types, "wheel", SDL_JOYSTICK_TYPE_WHEEL);
-	SET_NUM(types, "arcadestick", SDL_JOYSTICK_TYPE_ARCADE_STICK);
-	SET_NUM(types, "flightstick", SDL_JOYSTICK_TYPE_FLIGHT_STICK);
-	SET_NUM(types, "dancepad", SDL_JOYSTICK_TYPE_DANCE_PAD);
-	SET_NUM(types, "guitar", SDL_JOYSTICK_TYPE_GUITAR);
-	SET_NUM(types, "drumkit", SDL_JOYSTICK_TYPE_DRUM_KIT);
-	SET_NUM(types, "arcadepad", SDL_JOYSTICK_TYPE_ARCADE_PAD);
-	SET_NUM(types, "throttle", SDL_JOYSTICK_TYPE_THROTTLE);
+	// SET_NUM(types, "unknown", SDL_JOYSTICK_TYPE_UNKNOWN);
+	// SET_NUM(types, "gamecontroller", SDL_JOYSTICK_TYPE_GAMECONTROLLER);
+	// SET_NUM(types, "wheel", SDL_JOYSTICK_TYPE_WHEEL);
+	// SET_NUM(types, "arcadestick", SDL_JOYSTICK_TYPE_ARCADE_STICK);
+	// SET_NUM(types, "flightstick", SDL_JOYSTICK_TYPE_FLIGHT_STICK);
+	// SET_NUM(types, "dancepad", SDL_JOYSTICK_TYPE_DANCE_PAD);
+	// SET_NUM(types, "guitar", SDL_JOYSTICK_TYPE_GUITAR);
+	// SET_NUM(types, "drumkit", SDL_JOYSTICK_TYPE_DRUM_KIT);
+	// SET_NUM(types, "arcadepad", SDL_JOYSTICK_TYPE_ARCADE_PAD);
+	// SET_NUM(types, "throttle", SDL_JOYSTICK_TYPE_THROTTLE);
 
 	return nullptr;
 }
@@ -650,12 +650,12 @@ enum_getControllerAxes (Variant & axes)
 {
 	MAKE_MAP(axes);
 
-	SET_NUM(axes, "leftStickX", SDL_CONTROLLER_AXIS_LEFTX);
-	SET_NUM(axes, "leftStickY", SDL_CONTROLLER_AXIS_LEFTY);
-	SET_NUM(axes, "rightStickX", SDL_CONTROLLER_AXIS_RIGHTX);
-	SET_NUM(axes, "rightStickY", SDL_CONTROLLER_AXIS_RIGHTY);
-	SET_NUM(axes, "leftTrigger", SDL_CONTROLLER_AXIS_TRIGGERLEFT);
-	SET_NUM(axes, "rightTrigger", SDL_CONTROLLER_AXIS_TRIGGERRIGHT);
+	// SET_NUM(axes, "leftStickX", SDL_CONTROLLER_AXIS_LEFTX);
+	// SET_NUM(axes, "leftStickY", SDL_CONTROLLER_AXIS_LEFTY);
+	// SET_NUM(axes, "rightStickX", SDL_CONTROLLER_AXIS_RIGHTX);
+	// SET_NUM(axes, "rightStickY", SDL_CONTROLLER_AXIS_RIGHTY);
+	// SET_NUM(axes, "leftTrigger", SDL_CONTROLLER_AXIS_TRIGGERLEFT);
+	// SET_NUM(axes, "rightTrigger", SDL_CONTROLLER_AXIS_TRIGGERRIGHT);
 
 	return nullptr;
 }
@@ -680,10 +680,10 @@ enum_getControllerButtons (Variant & buttons)
 	SET_NUM(buttons, "rightStick", SDL_CONTROLLER_BUTTON_RIGHTSTICK);
 	SET_NUM(buttons, "leftShoulder", SDL_CONTROLLER_BUTTON_LEFTSHOULDER);
 	SET_NUM(buttons, "rightShoulder", SDL_CONTROLLER_BUTTON_RIGHTSHOULDER);
-	SET_NUM(buttons, "paddle1", SDL_CONTROLLER_BUTTON_PADDLE1);
-	SET_NUM(buttons, "paddle2", SDL_CONTROLLER_BUTTON_PADDLE2);
-	SET_NUM(buttons, "paddle3", SDL_CONTROLLER_BUTTON_PADDLE3);
-	SET_NUM(buttons, "paddle4", SDL_CONTROLLER_BUTTON_PADDLE4);
+	// SET_NUM(buttons, "paddle1", SDL_CONTROLLER_BUTTON_PADDLE1);
+	// SET_NUM(buttons, "paddle2", SDL_CONTROLLER_BUTTON_PADDLE2);
+	// SET_NUM(buttons, "paddle3", SDL_CONTROLLER_BUTTON_PADDLE3);
+	// SET_NUM(buttons, "paddle4", SDL_CONTROLLER_BUTTON_PADDLE4);
 
 	return nullptr;
 }
@@ -877,10 +877,10 @@ _controllerGetState (SDL_GameController * controller, Variant & object)
 		SET_BOOL(buttons, "rightStick", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_RIGHTSTICK));
 		SET_BOOL(buttons, "leftShoulder", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_LEFTSHOULDER));
 		SET_BOOL(buttons, "rightShoulder", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER));
-		SET_BOOL(buttons, "paddle1", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_PADDLE1));
-		SET_BOOL(buttons, "paddle2", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_PADDLE2));
-		SET_BOOL(buttons, "paddle3", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_PADDLE3));
-		SET_BOOL(buttons, "paddle4", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_PADDLE4));
+		// SET_BOOL(buttons, "paddle1", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_PADDLE1));
+		// SET_BOOL(buttons, "paddle2", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_PADDLE2));
+		// SET_BOOL(buttons, "paddle3", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_PADDLE3));
+		// SET_BOOL(buttons, "paddle4", SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_PADDLE4));
 
 		SET_MAP(object, "buttons", buttons);
 	}
@@ -1882,67 +1882,67 @@ mouse_showCursor (bool show)
 ErrorMessage *
 joystick_getDevices(Variant & list)
 {
-	int num_devices = SDL_NumJoysticks();
-	if (num_devices < 0) {
-		RETURN_ERROR("SDL_NumJoysticks() error: %s\n", SDL_GetError());
-	}
+	// int num_devices = SDL_NumJoysticks();
+	// if (num_devices < 0) {
+	// 	RETURN_ERROR("SDL_NumJoysticks() error: %s\n", SDL_GetError());
+	// }
 
-	MAKE_LIST(list);
+	// MAKE_LIST(list);
 
-	for (int i = 0; i < num_devices; i++) {
-		Variant device;
-		MAKE_MAP(device);
+	// for (int i = 0; i < num_devices; i++) {
+	// 	Variant device;
+	// 	MAKE_MAP(device);
 
-		SET_NUM(device, "_index", i);
+	// 	SET_NUM(device, "_index", i);
 
-		int id = SDL_JoystickGetDeviceInstanceID(i);
-		SET_NUM(device, "id", id);
+	// 	int id = SDL_JoystickGetDeviceInstanceID(i);
+	// 	SET_NUM(device, "id", id);
 
-		int type = SDL_JoystickGetDeviceType(i);
-		SET_NUM(device, "type", type);
+	// 	int type = SDL_JoystickGetDeviceType(i);
+	// 	SET_NUM(device, "type", type);
 
-		const char * name = SDL_JoystickNameForIndex(i);
-		if (name == nullptr) {
-			RETURN_ERROR("SDL_JoystickNameForIndex(%d) error: %s\n", i, SDL_GetError());
-		}
-		SET_STRING(device, "name", name);
+	// 	const char * name = SDL_JoystickNameForIndex(i);
+	// 	if (name == nullptr) {
+	// 		RETURN_ERROR("SDL_JoystickNameForIndex(%d) error: %s\n", i, SDL_GetError());
+	// 	}
+	// 	SET_STRING(device, "name", name);
 
-		const char * path = SDL_JoystickPathForIndex(i);
-		if (path == nullptr) {
-			RETURN_ERROR("SDL_JoystickPathForIndex(%d) error: %s\n", i, SDL_GetError());
-		}
-		SET_STRING(device, "path", path);
+	// 	const char * path = SDL_JoystickPathForIndex(i);
+	// 	if (path == nullptr) {
+	// 		RETURN_ERROR("SDL_JoystickPathForIndex(%d) error: %s\n", i, SDL_GetError());
+	// 	}
+	// 	SET_STRING(device, "path", path);
 
-		SDL_JoystickGUID guid = SDL_JoystickGetDeviceGUID(i);
-		char * guid_string = _allocateString(33);
-		SDL_JoystickGetGUIDString(guid, guid_string, 33);
-		SET_STRING(device, "guid", guid_string);
+	// 	SDL_JoystickGUID guid = SDL_JoystickGetDeviceGUID(i);
+	// 	char * guid_string = _allocateString(33);
+	// 	SDL_JoystickGetGUIDString(guid, guid_string, 33);
+	// 	SET_STRING(device, "guid", guid_string);
 
-		int vendor = SDL_JoystickGetDeviceVendor(i);
-		SET_NUM(device, "vendor", vendor);
+	// 	int vendor = SDL_JoystickGetDeviceVendor(i);
+	// 	SET_NUM(device, "vendor", vendor);
 
-		int product = SDL_JoystickGetDeviceProduct(i);
-		SET_NUM(device, "product", product);
+	// 	int product = SDL_JoystickGetDeviceProduct(i);
+	// 	SET_NUM(device, "product", product);
 
-		int version = SDL_JoystickGetDeviceProductVersion(i);
-		SET_NUM(device, "version", version);
+	// 	int version = SDL_JoystickGetDeviceProductVersion(i);
+	// 	SET_NUM(device, "version", version);
 
-		int player = SDL_JoystickGetDevicePlayerIndex(i);
-		SET_NUM(device, "player", player);
+	// 	int player = SDL_JoystickGetDevicePlayerIndex(i);
+	// 	SET_NUM(device, "player", player);
 
-		bool is_controller = SDL_IsGameController(i);
-		SET_BOOL(device, "isController", is_controller);
-		if (is_controller) {
-			const char * mapping = SDL_GameControllerMappingForDeviceIndex(i);
-			if (mapping != nullptr) {
-				SET_STRING(device, "mapping", mapping);
-			} else {
-				SET_NULL(device, "mapping");
-			}
-		}
+	// 	bool is_controller = SDL_IsGameController(i);
+	// 	SET_BOOL(device, "isController", is_controller);
+	// 	if (is_controller) {
+	// 		const char * mapping = SDL_GameControllerMappingForDeviceIndex(i);
+	// 		if (mapping != nullptr) {
+	// 			SET_STRING(device, "mapping", mapping);
+	// 		} else {
+	// 			SET_NULL(device, "mapping");
+	// 		}
+	// 	}
 
-		APPEND(list, device);
-	}
+	// 	APPEND(list, device);
+	// }
 
 	return nullptr;
 }
@@ -1950,118 +1950,118 @@ joystick_getDevices(Variant & list)
 ErrorMessage *
 joystick_open (int index, Variant & object)
 {
-	SDL_Joystick * joystick = SDL_JoystickOpen(index);
-	if (joystick == nullptr) {
-		RETURN_ERROR("SDL_JoystickOpen(%d) error: %s\n", index, SDL_GetError());
-	}
+	// SDL_Joystick * joystick = SDL_JoystickOpen(index);
+	// if (joystick == nullptr) {
+	// 	RETURN_ERROR("SDL_JoystickOpen(%d) error: %s\n", index, SDL_GetError());
+	// }
 
-	MAKE_MAP(object);
+	// MAKE_MAP(object);
 
-	{
-		SDL_JoystickID joystick_id = SDL_JoystickInstanceID(joystick);
-		if (joystick_id < 0) {
-			RETURN_ERROR("SDL_JoystickInstanceID(%d) error: %s\n", index, SDL_GetError());
-		}
-		SET_NUM(object, "id", joystick_id);
+	// {
+	// 	SDL_JoystickID joystick_id = SDL_JoystickInstanceID(joystick);
+	// 	if (joystick_id < 0) {
+	// 		RETURN_ERROR("SDL_JoystickInstanceID(%d) error: %s\n", index, SDL_GetError());
+	// 	}
+	// 	SET_NUM(object, "id", joystick_id);
 
-		SET_NUM(object, "firmwareVersion", SDL_JoystickGetFirmwareVersion(joystick));
+	// 	SET_NUM(object, "firmwareVersion", SDL_JoystickGetFirmwareVersion(joystick));
 
-		const char * serial = SDL_JoystickGetSerial(joystick);
-		if (serial != nullptr) {
-			SET_STRING(object, "serialNumber", serial);
-		} else {
-			SET_NULL(object, "serialNumber");
-		}
+	// 	const char * serial = SDL_JoystickGetSerial(joystick);
+	// 	if (serial != nullptr) {
+	// 		SET_STRING(object, "serialNumber", serial);
+	// 	} else {
+	// 		SET_NULL(object, "serialNumber");
+	// 	}
 
-		SET_BOOL(object, "hasLed", SDL_JoystickHasLED(joystick));
-		SET_BOOL(object, "hasRumble", SDL_JoystickHasRumble(joystick));
-		SET_BOOL(object, "hasRumbleTriggers", SDL_JoystickHasRumbleTriggers(joystick));
-	}
+	// 	SET_BOOL(object, "hasLed", SDL_JoystickHasLED(joystick));
+	// 	SET_BOOL(object, "hasRumble", SDL_JoystickHasRumble(joystick));
+	// 	SET_BOOL(object, "hasRumbleTriggers", SDL_JoystickHasRumbleTriggers(joystick));
+	// }
 
-	{
-		int num_axes = SDL_JoystickNumAxes(joystick);
-		if (num_axes < 0) {
-			RETURN_ERROR("SDL_JoystickNumAxes(%d) error: %s\n", index, SDL_GetError());
-		}
+	// {
+	// 	int num_axes = SDL_JoystickNumAxes(joystick);
+	// 	if (num_axes < 0) {
+	// 		RETURN_ERROR("SDL_JoystickNumAxes(%d) error: %s\n", index, SDL_GetError());
+	// 	}
 
-		Variant axes;
-		MAKE_LIST(axes);
+	// 	Variant axes;
+	// 	MAKE_LIST(axes);
 
-		for (int i = 0; i < num_axes; i++) {
-			Sint16 value = SDL_JoystickGetAxis(joystick, i);
+	// 	for (int i = 0; i < num_axes; i++) {
+	// 		Sint16 value = SDL_JoystickGetAxis(joystick, i);
 
-			Variant axis;
-			MAKE_NUM(axis, _joystickMapAxis(value));
-			APPEND(axes, axis);
-		}
+	// 		Variant axis;
+	// 		MAKE_NUM(axis, _joystickMapAxis(value));
+	// 		APPEND(axes, axis);
+	// 	}
 
-		SET_LIST(object, "axes", axes);
-	}
+	// 	SET_LIST(object, "axes", axes);
+	// }
 
-	{
-		int num_balls = SDL_JoystickNumBalls(joystick);
-		if (num_balls < 0) {
-			RETURN_ERROR("SDL_JoystickNumBalls(%d) error: %s\n", index, SDL_GetError());
-		}
+	// {
+	// 	int num_balls = SDL_JoystickNumBalls(joystick);
+	// 	if (num_balls < 0) {
+	// 		RETURN_ERROR("SDL_JoystickNumBalls(%d) error: %s\n", index, SDL_GetError());
+	// 	}
 
-		Variant balls;
-		MAKE_LIST(balls);
+	// 	Variant balls;
+	// 	MAKE_LIST(balls);
 
-		for (int i = 0; i < num_balls; i++) {
-			int dx, dy;
-			if (SDL_JoystickGetBall(joystick, i, &dx, &dy) != 0) {
-				RETURN_ERROR("SDL_JoystickGetBall(%d, %d) error: %s\n", index, i, SDL_GetError());
-			}
+	// 	for (int i = 0; i < num_balls; i++) {
+	// 		int dx, dy;
+	// 		if (SDL_JoystickGetBall(joystick, i, &dx, &dy) != 0) {
+	// 			RETURN_ERROR("SDL_JoystickGetBall(%d, %d) error: %s\n", index, i, SDL_GetError());
+	// 		}
 
-			Variant ball;
-			MAKE_MAP(ball);
-			SET_NUM(ball, "x", dx);
-			SET_NUM(ball, "y", dy);
-			APPEND(balls, ball);
-		}
+	// 		Variant ball;
+	// 		MAKE_MAP(ball);
+	// 		SET_NUM(ball, "x", dx);
+	// 		SET_NUM(ball, "y", dy);
+	// 		APPEND(balls, ball);
+	// 	}
 
-		SET_LIST(object, "balls", balls);
-	}
+	// 	SET_LIST(object, "balls", balls);
+	// }
 
-	{
-		int num_buttons = SDL_JoystickNumButtons(joystick);
-		if (num_buttons < 0) {
-			RETURN_ERROR("SDL_JoystickNumButtons(%d) error: %s\n", index, SDL_GetError());
-		}
+	// {
+	// 	int num_buttons = SDL_JoystickNumButtons(joystick);
+	// 	if (num_buttons < 0) {
+	// 		RETURN_ERROR("SDL_JoystickNumButtons(%d) error: %s\n", index, SDL_GetError());
+	// 	}
 
-		Variant buttons;
-		MAKE_LIST(buttons);
+	// 	Variant buttons;
+	// 	MAKE_LIST(buttons);
 
-		for (int i = 0; i < num_buttons; i++) {
-			int pressed = SDL_JoystickGetButton(joystick, i);
+	// 	for (int i = 0; i < num_buttons; i++) {
+	// 		int pressed = SDL_JoystickGetButton(joystick, i);
 
-			Variant button;
-			MAKE_BOOL(button, pressed);
-			APPEND(buttons, button);
-		}
+	// 		Variant button;
+	// 		MAKE_BOOL(button, pressed);
+	// 		APPEND(buttons, button);
+	// 	}
 
-		SET_LIST(object, "buttons", buttons);
-	}
+	// 	SET_LIST(object, "buttons", buttons);
+	// }
 
-	{
-		int num_hats = SDL_JoystickNumHats(joystick);
-		if (num_hats < 0) {
-			RETURN_ERROR("SDL_JoystickNumHats(%d) error: %s\n", index, SDL_GetError());
-		}
+	// {
+	// 	int num_hats = SDL_JoystickNumHats(joystick);
+	// 	if (num_hats < 0) {
+	// 		RETURN_ERROR("SDL_JoystickNumHats(%d) error: %s\n", index, SDL_GetError());
+	// 	}
 
-		Variant hats;
-		MAKE_LIST(hats);
+	// 	Variant hats;
+	// 	MAKE_LIST(hats);
 
-		for (int i = 0; i < num_hats; i++) {
-			int position = SDL_JoystickGetHat(joystick, i);
+	// 	for (int i = 0; i < num_hats; i++) {
+	// 		int position = SDL_JoystickGetHat(joystick, i);
 
-			Variant hat;
-			MAKE_NUM(hat, position);
-			APPEND(hats, hat);
-		}
+	// 		Variant hat;
+	// 		MAKE_NUM(hat, position);
+	// 		APPEND(hats, hat);
+	// 	}
 
-		SET_LIST(object, "hats", hats);
-	}
+	// 	SET_LIST(object, "hats", hats);
+	// }
 
 	return nullptr;
 }
@@ -2069,12 +2069,12 @@ joystick_open (int index, Variant & object)
 ErrorMessage *
 joystick_close (int joystick_id)
 {
-	SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
-	if (joystick == nullptr) {
-		RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
-	}
+	// SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
+	// if (joystick == nullptr) {
+	// 	RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
+	// }
 
-	SDL_JoystickClose(joystick);
+	// SDL_JoystickClose(joystick);
 
 	return nullptr;
 }
@@ -2082,12 +2082,12 @@ joystick_close (int joystick_id)
 ErrorMessage *
 joystick_getPower (int joystick_id, int * power)
 {
-	SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
-	if (joystick == nullptr) {
-		RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
-	}
+	// SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
+	// if (joystick == nullptr) {
+	// 	RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
+	// }
 
-	*power = SDL_JoystickCurrentPowerLevel(joystick);
+	// *power = SDL_JoystickCurrentPowerLevel(joystick);
 
 	return nullptr;
 }
@@ -2099,12 +2099,12 @@ joystick_rumble (
 	double high_freq_rumble,
 	int duration
 ) {
-	SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
-	if (joystick == nullptr) {
-		RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
-	}
+	// SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
+	// if (joystick == nullptr) {
+	// 	RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
+	// }
 
-	SDL_JoystickRumble(joystick, low_freq_rumble * 0xFFFF, high_freq_rumble * 0xFFFF, duration);
+	// SDL_JoystickRumble(joystick, low_freq_rumble * 0xFFFF, high_freq_rumble * 0xFFFF, duration);
 
 	return nullptr;
 }
@@ -2112,12 +2112,12 @@ joystick_rumble (
 ErrorMessage *
 joystick_setLed (int joystick_id, double red, double green, double blue)
 {
-	SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
-	if (joystick == nullptr) {
-		RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
-	}
+	// SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
+	// if (joystick == nullptr) {
+	// 	RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
+	// }
 
-	SDL_JoystickSetLED(joystick, red * 0xFF, green * 0xFF, blue * 0xFF);
+	// SDL_JoystickSetLED(joystick, red * 0xFF, green * 0xFF, blue * 0xFF);
 
 	return nullptr;
 }
@@ -2125,12 +2125,12 @@ joystick_setLed (int joystick_id, double red, double green, double blue)
 ErrorMessage *
 joystick_setPlayer (int joystick_id, int player)
 {
-	SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
-	if (joystick == nullptr) {
-		RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
-	}
+	// SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
+	// if (joystick == nullptr) {
+	// 	RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
+	// }
 
-	SDL_JoystickSetPlayerIndex(joystick, player);
+	// SDL_JoystickSetPlayerIndex(joystick, player);
 
 	return nullptr;
 }
@@ -2142,12 +2142,12 @@ joystick_rumbleTriggers (
 	double right_rumble,
 	int duration
 ) {
-	SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
-	if (joystick == nullptr) {
-		RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
-	}
+	// SDL_Joystick * joystick = SDL_JoystickFromInstanceID(joystick_id);
+	// if (joystick == nullptr) {
+	// 	RETURN_ERROR("SDL_JoystickFromInstanceID(%d) error: %s\n", joystick_id, SDL_GetError());
+	// }
 
-	SDL_JoystickRumbleTriggers(joystick, left_rumble * 0xFFFF, right_rumble * 0xFFFF, duration);
+	// SDL_JoystickRumbleTriggers(joystick, left_rumble * 0xFFFF, right_rumble * 0xFFFF, duration);
 
 	return nullptr;
 }
@@ -2163,29 +2163,29 @@ controller_open (int index, Variant & object)
 	MAKE_MAP(object);
 
 	{
-		SDL_Joystick * joystick = SDL_GameControllerGetJoystick(controller);
-		if (joystick == nullptr) {
-			RETURN_ERROR("SDL_GameControllerGetJoystick(%d) error: %s\n", index, SDL_GetError());
-		}
+		// SDL_Joystick * joystick = SDL_GameControllerGetJoystick(controller);
+		// if (joystick == nullptr) {
+		// 	RETURN_ERROR("SDL_GameControllerGetJoystick(%d) error: %s\n", index, SDL_GetError());
+		// }
 
-		SDL_JoystickID joystick_id = SDL_JoystickInstanceID(joystick);
-		if (joystick_id < 0) {
-			RETURN_ERROR("SDL_JoystickInstanceID(%d) error: %s\n", index, SDL_GetError());
-		}
-		SET_NUM(object, "id", joystick_id);
+		// SDL_JoystickID joystick_id = SDL_JoystickInstanceID(joystick);
+		// if (joystick_id < 0) {
+		// 	RETURN_ERROR("SDL_JoystickInstanceID(%d) error: %s\n", index, SDL_GetError());
+		// }
+		// SET_NUM(object, "id", joystick_id);
 
-		SET_NUM(object, "firmwareVersion", SDL_JoystickGetFirmwareVersion(joystick));
+		// SET_NUM(object, "firmwareVersion", SDL_JoystickGetFirmwareVersion(joystick));
 
-		const char * serial = SDL_JoystickGetSerial(joystick);
-		if (serial != nullptr) {
-			SET_STRING(object, "serialNumber", serial);
-		} else {
-			SET_NULL(object, "serialNumber");
-		}
+		// const char * serial = SDL_JoystickGetSerial(joystick);
+		// if (serial != nullptr) {
+		// 	SET_STRING(object, "serialNumber", serial);
+		// } else {
+		// 	SET_NULL(object, "serialNumber");
+		// }
 
-		SET_BOOL(object, "hasLed", SDL_JoystickHasLED(joystick));
-		SET_BOOL(object, "hasRumble", SDL_JoystickHasRumble(joystick));
-		SET_BOOL(object, "hasRumbleTriggers", SDL_JoystickHasRumbleTriggers(joystick));
+		// SET_BOOL(object, "hasLed", SDL_JoystickHasLED(joystick));
+		// SET_BOOL(object, "hasRumble", SDL_JoystickHasRumble(joystick));
+      //	SET_BOOL(object, "hasRumbleTriggers", SDL_JoystickHasRumbleTriggers(joystick));
 	}
 
 	ErrorMessage * error = _controllerGetState(controller, object);
